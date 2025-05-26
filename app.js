@@ -38,9 +38,17 @@ setInterval(() => {
         item.style.transform = `translateX(-${index}00%)`;
     })
 
-    if (index === items.length - 1) {
-        index = 0;
-    } else{
-        index++;
+    if(index === 0){
+        setTimeout(() => {
+            currentItem = items[index];
+            items[index].remove();
+            items.appendChild(currentItem);
+        }, 1000)
     }
+
+    // if (index === items.length - 1) {
+    //     index = 0;
+    // } else{
+    //     index++;
+    // }
 }, 2000)
