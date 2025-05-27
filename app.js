@@ -22,33 +22,19 @@ btnClose.addEventListener('click', () => {
 
 // Carousel
 
-//const carousel = document.getElementById('hero-heading');
 const items = document.querySelectorAll('#hero-heading .slide');
-// items[index].classList.add('active-slide');
 
-// setInterval(() => {
-    //     items[index].classList.remove('active-slide');
-    //     index = (index + 1) % items.length
-    //     items[index].classList.add('active-slide')
-    // }, 3000)
-
-let index = 0;
+let index = 1;
 setInterval(() => {
     items.forEach((item) => {
         item.style.transform = `translateX(-${index}00%)`;
     })
 
-    if(index === 0){
-        setTimeout(() => {
-            currentItem = items[index];
-            items[index].remove();
-            items.appendChild(currentItem);
-        }, 1000)
-    }
+    index++;
 
-    // if (index === items.length - 1) {
-    //     index = 0;
-    // } else{
-    //     index++;
-    // }
+    if(items[length].style.transform === 'translateX(-300%)') {
+        items.forEach((item) => {
+            item.style.transform = 'translateX(0)';
+        })
+    }
 }, 2000)
