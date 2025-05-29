@@ -87,16 +87,16 @@
           id="menu"
           class="bg-blue-primary absolute top-0 right-0 z-10 flex h-screen w-0 flex-col justify-center gap-10 text-center font-light shadow-md transition-all duration-500 md:static md:h-auto md:w-auto md:flex-row md:bg-transparent md:shadow-none"
         >
-          <li class="text-sm">
+          <li class="button-nav text-sm">
             <a href="/">Home</a>
           </li>
-          <li class="text-sm">
+          <li class="button-nav text-sm">
             <a href="#about">Sobre</a>
           </li>
-          <li class="text-sm">
+          <li class="button-nav text-sm">
             <a href="#services">Serviços</a>
           </li>
-          <li class="text-sm">
+          <li class="button-nav text-sm">
             <a href="#contact">Contato</a>
           </li>
         </ul>
@@ -107,23 +107,23 @@
       <section
         id="hero-heading"
         aria-labelledby="hero-heading"
-        class="relative flex h-3/4 max-h-screen w-full bg-blue-primary text-white overflow-hidden"
+        class="bg-blue-primary relative flex h-3/4 max-h-screen w-full overflow-hidden text-white"
       >
         <!-- Prev/Next -->
         <button
-          class="prev absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-black/50 p-2 text-2xl text-white hover:bg-black/70"
+          class="prev absolute top-1/2 left-4 z-20 -translate-y-1/2 rounded-full bg-black/50 p-2 text-2xl text-white hover:bg-black/70"
         >
           ‹
         </button>
         <button
-          class="next absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-black/50 p-2 text-2xl text-white hover:bg-black/70"
+          class="next absolute top-1/2 right-4 z-20 -translate-y-1/2 rounded-full bg-black/50 p-2 text-2xl text-white hover:bg-black/70"
         >
           ›
         </button>
 
         <!-- container com padding único -->
         <div class="slides-container flex w-full px-8 py-10">
-          <div class="slide bg-blue-primary flex min-w-full gap-4 px-14 py-10">
+          <div class="slide bg-blue-primary flex min-w-full gap-4 px-12">
             <!-- conteúdo do slide 1 -->
             <div class="w-1/2 p-6">
               <h1 class="text-4xl font-extrabold">
@@ -135,7 +135,7 @@
               <a
                 href="#contact"
                 role="button"
-                class="mt-8 inline-block rounded bg-yellow-primary px-8 py-2 font-semibold text-blue-secondary hover:opacity-90"
+                class="bg-yellow-primary text-blue-secondary mt-8 inline-block rounded px-8 py-2 font-semibold hover:opacity-90"
                 >Solicite um Orçamento</a
               >
             </div>
@@ -148,52 +148,58 @@
               />
             </div>
           </div>
+
           <!-- slide 2 -->
-          <div class="slide bg-blue-primary flex min-w-full gap-4 px-14 py-10">
-            <div class="max-w-1/2 py-4">
-              <h1 class="text-4xl font-extrabold">
-                Teste <br />para seu Negócio
-              </h1>
-              <p class="mt-2 text-lg font-extralight">
-                Soluções completas em T.I. e especialização em nobreaks
-              </p>
-              <a
-                href="#contact"
-                role="button"
-                class="bg-yellow-primary text-blue-secondary mt-20 inline-block rounded px-8 py-2 font-semibold"
-                >Solicite um Orçamento</a
-              >
-            </div>
-            <div class="max-w-1/2">
+          <div class="slide bg-blue-primary flex min-w-full gap-4 px-12">
+            <!-- conteúdo do slide 1 -->
+            <div class="w-1/2 p-6">
               <img
-                class="rounded-2xl"
-                src="assets/nobreaks-nhs.png"
-                alt="Equipamentos Nobreaks NHS"
+                class="aspect-video rounded-2xl object-cover"
+                src="assets/carrossel/servidor-2.jpeg"
+                alt="Servidor"
                 loading="eager"
               />
             </div>
-          </div>
-
-          <div class="slide bg-blue-primary flex min-w-full gap-4 px-14 py-10">
-            <div class="max-w-1/2 py-4">
+            <div class="w-1/2 p-6">
               <h1 class="text-4xl font-extrabold">
-                Teste 2 <br />para seu Negócio
+                Servidores à altura da sua empresa
               </h1>
               <p class="mt-2 text-lg font-extralight">
-                Soluções completas em T.I. e especialização em nobreaks
+                Venda e manutenção com quem entende de infraestrutura de
+                verdade.
               </p>
               <a
                 href="#contact"
                 role="button"
-                class="bg-yellow-primary text-blue-secondary mt-20 inline-block rounded px-8 py-2 font-semibold"
+                class="bg-yellow-primary text-blue-secondary mt-8 inline-block rounded px-8 py-2 font-semibold hover:opacity-90"
                 >Solicite um Orçamento</a
               >
             </div>
-            <div class="max-w-1/2">
+          </div>
+
+          <!-- slide 3 -->
+          <div class="slide bg-blue-primary flex min-w-full gap-4 px-12">
+            <!-- conteúdo do slide 1 -->
+            <div class="w-1/2 p-6">
+              <h1 class="text-4xl font-extrabold">
+                Quer dar uma turbinada no seu PC Gamer?
+              </h1>
+              <p class="mt-2 text-lg font-extralight">
+                Vennha com a gente e tenha suporte para escolher melhor seu
+                setup!
+              </p>
+              <a
+                href="#contact"
+                role="button"
+                class="bg-yellow-primary text-blue-secondary mt-8 inline-block rounded px-8 py-2 font-semibold hover:opacity-90"
+                >Solicite um Orçamento</a
+              >
+            </div>
+            <div class="w-1/2 p-6">
               <img
-                class="rounded-2xl"
-                src="assets/nobreaks-nhs.png"
-                alt="Equipamentos Nobreaks NHS"
+                class="aspect-video rounded-2xl object-cover"
+                src="assets/carrossel/pcgamer.jpg"
+                alt="PC Gamer"
                 loading="eager"
               />
             </div>
@@ -201,7 +207,9 @@
         </div>
 
         <!-- indicadores -->
-        <div class="indicators absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 gap-2"></div>
+        <div
+          class="indicators absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 gap-2"
+        ></div>
       </section>
 
       <section
