@@ -22,79 +22,103 @@ btnClose.addEventListener("click", () => {
 
 // Carousel
 
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.querySelector(".slides-container");
-  const slides = Array.from(document.querySelectorAll(".slide"));
-  const prevBtn = document.querySelector(".prev");
-  const nextBtn = document.querySelector(".next");
-  const indicators = document.querySelector(".indicators");
+const carousel = document.querySelector(".carousel");
+const slider = carousel.querySelector(".carousel_track");
+let slides = [...slider.children];
 
-  // clona primeiro e último
-  const firstClone = slides[0].cloneNode(true);
-  const lastClone = slides[slides.length - 1].cloneNode(true);
-  firstClone.id = "first-clone";
-  lastClone.id = "last-clone";
-  container.append(firstClone);
-  container.prepend(lastClone);
+// Initial slides position, so user can go from first to last slide (click to the left first)
+slider.prepend(slides[slides.length - 1]);
 
-  // recalc slides
-  const allSlides = Array.from(container.querySelectorAll(".slide"));
-  let index = 1;
-  const slideWidth = allSlides[index].clientWidth;
+// Creating dot for each slide
+const createDots = (carousel, initSlides) => {
+  const dotsContainer = document.createElement("div");
+  dotsContainer.classList.add("carousel_nav");
 
-  // posiciona no slide real 1
-  container.style.transform = `translateX(${-slideWidth * index}px)`;
-
-  // monta indicadores
-  slides.forEach((_, i) => {
-    const dot = document.createElement("span");
-    dot.className = "dot h-3 w-3 rounded-full bg-gray-500/70 cursor-pointer";
-    if (i === 0) dot.classList.replace("bg-gray-500/70", "bg-white");
-    dot.addEventListener("click", () => goTo(i + 1));
-    indicators.append(dot);
-  });
-  const dots = Array.from(document.querySelectorAll(".dot"));
-
-  function updateDots() {
-    dots.forEach(
-      (d) => (d.className = "dot h-3 w-3 rounded-full bg-gray-500/70"),
-    );
-    const active = dots[index - 1];
-    if (active) active.className = "dot h-3 w-3 rounded-full bg-white";
-  }
-
-  function goTo(i) {
-    index = i;
-    container.style.transition = "transform 0.6s ease";
-    container.style.transform = `translateX(${-slideWidth * index}px)`;
-    updateDots();
-  }
-
-  nextBtn.addEventListener("click", () => goTo(index + 1));
-  prevBtn.addEventListener("click", () => goTo(index - 1));
-
-  container.addEventListener("transitionend", () => {
-    const current = allSlides[index];
-    if (current.id === "first-clone") {
-      container.style.transition = "none";
-      index = 1;
-      container.style.transform = `translateX(${-slideWidth * index}px)`;
-    }
-    if (current.id === "last-clone") {
-      container.style.transition = "none";
-      index = allSlides.length - 2;
-      container.style.transform = `translateX(${-slideWidth * index}px)`;
-    }
+  initSlides.forEach((slide, index) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.classList.add("carousel_dot");
+    dot.setAttribute("aria-label", `Slide number ${index + 1}`);
+    slide.dataset.position = index;
+    slide.classList.contains("is-selected") && dot.classList.add("is-selected");
+    dotsContainer.appendChild(dot);
   });
 
-  // autoplay
-  let autoplayId = startAutoplay();
-  function startAutoplay() {
-    return setInterval(() => nextBtn.click(), 3000);
+  carousel.appendChild(dotsContainer);
+
+  return dotsContainer;
+};
+
+// Updating relevant dot
+const updateDot = (slide) => {
+  const currDot = dotNav.querySelector(".is-selected");
+  const targetDot = slide.dataset.position;
+
+  currDot.classList.remove("is-selected");
+  dots[targetDot].classList.add("is-selected");
+};
+
+// Handling arrow buttons
+const handleArrowClick = (arrow) => {
+  arrow.addEventListener("click", () => {
+    slides = [...slider.children];
+    const currSlide = slider.querySelector(".is-selected");
+    currSlide.classList.remove("is-selected");
+    let targetSlide;
+
+    if (arrow.classList.contains("jsPrev")) {
+      targetSlide = currSlide.previousElementSibling;
+      slider.prepend(slides[slides.length - 1]);
+    }
+
+    if (arrow.classList.contains("jsNext")) {
+      targetSlide = currSlide.nextElementSibling;
+      slider.append(slides[0]);
+    }
+
+    targetSlide.classList.add("is-selected");
+    updateDot(targetSlide);
+  });
+};
+
+const buttons = carousel.querySelectorAll(".carousel_btn");
+buttons.forEach(handleArrowClick);
+
+// Handling dot buttons
+const handleDotClick = (dot) => {
+  const dotIndex = dots.indexOf(dot);
+  const currSlidePos = slider.querySelector(".is-selected").dataset.position;
+  const targetSlidePos = slider.querySelector(`[data-position='${dotIndex}']`)
+    .dataset.position;
+
+  if (currSlidePos < targetSlidePos) {
+    const count = targetSlidePos - currSlidePos;
+    for (let i = count; i > 0; i--) nextBtn.click();
   }
-  container.addEventListener("mouseenter", () => clearInterval(autoplayId));
-  container.addEventListener(
-    "mouseleave",
-    () => (autoplayId = startAutoplay()),
-  );
+
+  if (currSlidePos > targetSlidePos) {
+    const count = currSlidePos - targetSlidePos;
+    for (let i = count; i > 0; i--) prevBtn.click();
+  }
+};
+
+const dotNav = createDots(carousel, slides);
+const dots = [...dotNav.children];
+const prevBtn = buttons[0];
+const nextBtn = buttons[1];
+
+dotNav.addEventListener("click", (e) => {
+  const dot = e.target.closest("button");
+  if (!dot) return;
+  handleDotClick(dot);
 });
+
+// Auto sliding
+const slideTiming = 4000;
+let interval;
+const slideInterval = () =>
+  (interval = setInterval(() => nextBtn.click(), slideTiming));
+
+//carousel.addEventListener("mouseover", () => clearInterval(interval));
+carousel.addEventListener("mouseleave", slideInterval);
+slideInterval();

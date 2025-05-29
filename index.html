@@ -109,107 +109,102 @@
         aria-labelledby="hero-heading"
         class="bg-blue-primary relative flex h-3/4 max-h-screen w-full overflow-hidden text-white"
       >
-        <!-- Prev/Next -->
-        <button
-          class="prev absolute top-1/2 left-4 z-20 -translate-y-1/2 rounded-full bg-black/50 p-2 text-2xl text-white hover:bg-black/70"
-        >
-          ‹
-        </button>
-        <button
-          class="next absolute top-1/2 right-4 z-20 -translate-y-1/2 rounded-full bg-black/50 p-2 text-2xl text-white hover:bg-black/70"
-        >
-          ›
-        </button>
-
-        <!-- container com padding único -->
-        <div class="slides-container flex w-full px-8 py-10">
-          <div class="slide bg-blue-primary flex min-w-full gap-4 px-12">
-            <!-- conteúdo do slide 1 -->
-            <div class="w-1/2 p-6">
-              <h1 class="text-4xl font-extrabold">
-                Proteção e Confiabilidade<br />para seu Negócio
-              </h1>
-              <p class="mt-2 text-lg font-extralight">
-                Soluções completas em T.I. e especialização em nobreaks
-              </p>
-              <a
-                href="#contact"
-                role="button"
-                class="bg-yellow-primary text-blue-secondary mt-8 inline-block rounded px-8 py-2 font-semibold hover:opacity-90"
-                >Solicite um Orçamento</a
-              >
-            </div>
-            <div class="w-1/2">
-              <img
-                class="rounded-2xl"
-                src="assets/nobreaks-nhs.png"
-                alt="Equipamentos Nobreaks NHS"
-                loading="eager"
-              />
-            </div>
-          </div>
-
-          <!-- slide 2 -->
-          <div class="slide bg-blue-primary flex min-w-full gap-4 px-12">
-            <!-- conteúdo do slide 1 -->
-            <div class="w-1/2 p-6">
-              <img
-                class="aspect-video rounded-2xl object-cover"
-                src="assets/carrossel/servidor-2.jpeg"
-                alt="Servidor"
-                loading="eager"
-              />
-            </div>
-            <div class="w-1/2 p-6">
-              <h1 class="text-4xl font-extrabold">
-                Servidores à altura da sua empresa
-              </h1>
-              <p class="mt-2 text-lg font-extralight">
-                Venda e manutenção com quem entende de infraestrutura de
-                verdade.
-              </p>
-              <a
-                href="#contact"
-                role="button"
-                class="bg-yellow-primary text-blue-secondary mt-8 inline-block rounded px-8 py-2 font-semibold hover:opacity-90"
-                >Solicite um Orçamento</a
-              >
-            </div>
-          </div>
-
-          <!-- slide 3 -->
-          <div class="slide bg-blue-primary flex min-w-full gap-4 px-12">
-            <!-- conteúdo do slide 1 -->
-            <div class="w-1/2 p-6">
-              <h1 class="text-4xl font-extrabold">
-                Quer dar uma turbinada no seu PC Gamer?
-              </h1>
-              <p class="mt-2 text-lg font-extralight">
-                Vennha com a gente e tenha suporte para escolher melhor seu
-                setup!
-              </p>
-              <a
-                href="#contact"
-                role="button"
-                class="bg-yellow-primary text-blue-secondary mt-8 inline-block rounded px-8 py-2 font-semibold hover:opacity-90"
-                >Solicite um Orçamento</a
-              >
-            </div>
-            <div class="w-1/2 p-6">
-              <img
-                class="aspect-video rounded-2xl object-cover"
-                src="assets/carrossel/pcgamer.jpg"
-                alt="PC Gamer"
-                loading="eager"
-              />
-            </div>
-          </div>
-        </div>
-
-        <!-- indicadores -->
-        <div
-          class="indicators absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 gap-2"
-        ></div>
+        <div class="carousel relative w-full">
+            <!-- Prev/Next -->
+            <button
+              class="carousel_btn jsPrev absolute top-1/2 left-4 z-20 -translate-y-1/2 bg-black/50 p-2 text-2xl text-white"
+            >
+              ‹
+            </button>
+            <button
+              class="carousel_btn jsNext absolute top-1/2 right-4 z-20 -translate-y-1/2 bg-black/50 p-2 text-2xl text-white"
+            >
+              ›
+            </button>
+      
+            <div class="carousel_track-container w-full h-full">
+                <div class="carousel_track relative px-8 py-10">
+                  <!-- slide 1 -->
+                  <div class="carousel_slide is-selected absolute top-10 right-0 left-0 bottom-0 bg-blue-primary flex min-w-full gap-4 px-12">
+                    <!-- conteúdo do slide 1 -->
+                    <div class="w-1/2 p-6">
+                      <h1 class="text-4xl font-extrabold">
+                        Proteção e Confiabilidade<br />para seu Negócio
+                      </h1>
+                      <p class="mt-2 text-lg font-extralight">
+                        Soluções completas em T.I. e especialização em nobreaks
+                      </p>
+                      <a
+                        href="#contact"
+                        role="button"
+                        class="bg-yellow-primary text-blue-secondary mt-8 inline-block rounded px-8 py-2 font-semibold hover:opacity-90"
+                        >Solicite um Orçamento</a
+                      >
+                    </div>
+                    <div class="w-1/2">
+                      <img
+                        class="rounded-2xl"
+                        src="assets/nobreaks-nhs.png"
+                        alt="Equipamentos Nobreaks NHS"
+                        loading="eager"
+                      />
+                    </div>
+                  </div>
+          
+                  <!-- slide 2 -->
+                  <div class="carousel_slide absolute top-10 right-0 left-0 bottom-0 bg-blue-primary flex min-w-full gap-4 px-12">
+                    <!-- conteúdo do slide 1 -->
+                    <div class="w-1/2 p-6">
+                      <img
+                        class="aspect-video rounded-2xl object-cover"
+                        src="assets/carrossel/servidor-2.jpeg"
+                        alt="Servidor"
+                        loading="eager"
+                      />
+                    </div>
+                    <div class="w-1/2 p-6">
+                      <h1 class="text-4xl font-extrabold">
+                        Servidores à altura da sua empresa
+                      </h1>
+                      <p class="mt-2 text-lg font-extralight">
+                        Venda e manutenção com quem entende de infraestrutura de verdade.
+                      </p>
+                      <a
+                        href="#contact"
+                        role="button"
+                        class="bg-yellow-primary text-blue-secondary mt-8 inline-block rounded px-8 py-2 font-semibold hover:opacity-90"
+                        >Solicite um Orçamento</a
+                      >
+                    </div>
+                  </div>
+          
+                  <!-- slide 3 -->
+                  <div class="carousel_slide absolute top-10 right-0 left-0 bottom-0 bg-blue-primary flex min-w-full gap-4 px-12">
+                    <!-- conteúdo do slide 1 -->
+                    <div class="w-1/2 p-6">
+                      <h1 class="text-4xl font-extrabold">
+                        Quer dar uma turbinada no seu PC Gamer?
+                      </h1>
+                      <p class="mt-2 text-lg font-extralight">
+                        Vennha com a gente e tenha suporte para escolher melhor seu setup!
+                      </p>
+                      <a
+                        href="#contact"
+                        role="button"
+                        class="bg-yellow-primary text-blue-secondary mt-8 inline-block rounded px-8 py-2 font-semibold hover:opacity-90"
+                        >Solicite um Orçamento</a
+                      >
+                    </div>
+                    <div class="w-1/2 p-6">
+                      <img
+                        class="aspect-video rounded-2xl object-cover"
+                        src="assets/carrossel/pcgamer.jpg"
+                        alt="PC Gamer"
+                        loading="eager"
+                      />
+                    </div>
+                  </div>
+                </div>
       </section>
 
       <section
