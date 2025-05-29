@@ -119,6 +119,6 @@ let interval;
 const slideInterval = () =>
   (interval = setInterval(() => nextBtn.click(), slideTiming));
 
-//carousel.addEventListener("mouseover", () => clearInterval(interval));
+carousel.addEventListener("mouseover", () => clearInterval(interval));
 carousel.addEventListener("mouseleave", slideInterval);
 slideInterval();

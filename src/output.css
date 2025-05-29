@@ -204,8 +204,8 @@
   .top-6 {
     top: calc(var(--spacing) * 6);
   }
-  .top-10 {
-    top: calc(var(--spacing) * 10);
+  .top-8 {
+    top: calc(var(--spacing) * 8);
   }
   .right-0 {
     right: calc(var(--spacing) * 0);
@@ -293,6 +293,9 @@
   }
   .aspect-video {
     aspect-ratio: var(--aspect-video);
+  }
+  .h-0\.5 {
+    height: calc(var(--spacing) * 0.5);
   }
   .h-2 {
     height: calc(var(--spacing) * 2);
@@ -659,6 +662,9 @@
     }
   }
 }
+* {
+  scroll-behavior: smooth;
+}
 .button-nav {
   color: white;
   text-decoration: none;
@@ -680,7 +686,6 @@
   width: 100%;
 }
 .carousel_slide {
-  text-align: center;
   transform: translateX(-100%);
   transition: transform 0.5s ease-in;
 }

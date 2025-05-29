@@ -11,6 +11,10 @@
   --color-blue-dark: oklch(0.21 0.0318 264.66);
 }
 
+*{
+    scroll-behavior: smooth;
+}
+
 .button-nav {
   color: white;
   text-decoration: none;
@@ -36,8 +40,6 @@
 }
 
 .carousel_slide {
-    /* padding: 5% 12% 8%; */
-    text-align: center;
     transform: translateX(-100%);
     transition: transform 0.5s ease-in;
 }
